@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Música para Abraham 🎵</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<canvas id="fondo-estrellas"></canvas>
+<div id="contenedor-corazones"></div>
+
+<header class="navbar">
+  <span class="logo">Te amo <span>3 millones</span></span>
+  <button class="boton-menu" aria-label="Abrir menú">☰</button>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="mensajes.html">Mensajes</a></li>
+      <li><a href="musica.html">Música</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+      <li><a href="juego.html">Juego</a></li>
+      <li><a href="escribeme.html">Escríbeme</a></li>
+      <li><a href="carta.html">Carta</a></li>
+    </ul>
+  </nav>
+  <button id="boton-musica-fondo" class="boton-musica">🔈 Música: desactivada</button>
+</header>
+
+<audio id="audio-fondo" loop>
+  <source src="assets/audio/Química Mayor.mp4" type="audio/mp4" />
+</audio>
+
+<main>
+  <section class="seccion">
+    <h1 class="titulo-seccion">Música que te encanta</h1>
+    <p class="subtitulo-seccion">
+      Porque sé que Mon Laferte es tu favorita,
+      aquí tienes algunas de sus canciones.
+    </p>
+
+    <div class="filtros-galeria filtros-musica" role="group" aria-label="Filtrar canciones">
+      <button class="activo" data-categoria="todas">Todas</button>
+      <button data-categoria="mon">Mon Laferte</button>
+      <button data-categoria="recomendadas">Para que las escuches</button>
+    </div>
+
+    <div class="lista-canciones">
+      <div class="cancion" data-categoria="mon">
+        <div class="portada"><img src="assets/img/portada.webp" alt="Vendaval"></div>
+        <div class="info">
+          <h3>Vendaval</h3>
+          <span>Mon Laferte</span>
+        </div>
+        <audio controls>
+          <source src="assets/audio/Vendaval.mp4" type="audio/mp4" />
+          Tu navegador no soporta audio HTML5.
+        </audio>
+        </div>
+      </div>
+
+      <div class="cancion" data-categoria="mon">
+        <div class="portada"><img src="assets/img/portada2.png" alt=""></div>
+        <div class="info">
+          <h3>Química mayor</h3>
+          <span>Mon Laferte</span>
+        </div>
+        <audio controls>
+          <source src="assets/audio/Química Mayor.mp4" type="audio/mp4" />
+          Tu navegador no soporta audio HTML5.
+        </audio>
+      </div>
+
+      <div class="cancion" data-categoria="mon">
+        <div class="portada"><img src="assets/img/portada.webp" alt=""></div>
+        <div class="info">
+          <h3>Esto es amor</h3>
+          <span>Mon Laferte</span>
+        </div>
+        <audio controls>
+          <source src="assets/audio/Esto Es Amor Mon Laferte.mp4" type="audio/mp4" />
+          Tu navegador no soporta audio HTML5.
+        </audio>
+      </div>
+
+      <div class="cancion" data-categoria="mon">
+        <div class="portada"><img src="assets/img/portada2.png" alt=""></div>
+        <div class="info">
+          <h3>Gigante</h3>
+          <span>Mon Laferte</span>
+        </div>
+        <audio controls>
+          <source src="assets/audio/Gigante Mon Laferte.mp3" type="audio/mp3" />
+          Tu navegador no soporta audio HTML5.
+        </audio>
+      </div>
+
+      <div class="cancion" data-categoria="mon">
+        <div class="portada"><img src="assets/img/portada.webp" alt=""></div>
+        <div class="info">
+          <h3>Flaco</h3>
+          <span>Mon Laferte</span>
+        </div>
+        <audio controls>
+          <source src="assets/audio/Flaco Mon Laferte.mp3" type="audio/mp3" />
+          Tu navegador no soporta audio HTML5.
+        </audio>
+      </div>
+
+      <div class="cancion" data-categoria="recomendadas">
+        <div class="portada"><img src="assets/img/ojitos.jpg" alt=""></div>
+        <div class="info">
+          <h3>Ojitos lindos</h3>
+          <span>Bad Bunny</span>
+        </div>
+        <audio controls>
+          <source src="assets/audio/Ojitos Lindos Bad Bunny.mp3" type="audio/mpeg" />
+          Tu navegador no soporta audio HTML5.
+        </audio>
+      </div>
+
+      <div class="cancion" data-categoria="recomendadas" data-cancion="honeybee">
+        <div class="portada"><img src="assets/img/olivia.webp" alt=""></div>
+        <div class="info">
+          <h3>Honeybee</h3>
+          <span>Olivia Rodrigo</span>
+        </div>
+        <audio controls>
+          <source src="assets/audio/honeybee Olivia Rodrigo.mp3" type="audio/mpeg" />
+          Tu navegador no soporta audio HTML5.
+        </audio>
+
+        <div class="honeybee-controls">
+          <button class="boton-ver-letra" type="button" data-cancion="honeybee" aria-expanded="false" hidden>Ver letra</button>
+        </div>
+
+        <div class="letra-cancion honeybee-letra" aria-label="Letra de Honeybee" hidden>
+          <span class="titulo-letra">Letra en español</span>
+          <p>
+            Bueno, supongo que es verdad<br>
+            Que el tiempo puede sanar hasta las heridas más profundas<br>
+            Y esos clichés que conocía<br>
+            Parecían tan comunes cuando te vi<br><br>
+            Caminemos en la oscuridad<br>
+            Saltemos la cerca del parque<br>
+            Mi chico, mi abejita de miel<br>
+            Dios, me encanta la forma en que me miras<br><br>
+            Y es demasiado difícil describir esto<br>
+            De una manera que se sienta sincera<br>
+            Pero incluso cuando me quedo callada<br>
+            Te amo, cariño, lo prometo<br>
+            Y espero nunca ver cómo se ve tu rostro al marcharte<br>
+            Un rostro que juro que podría pasar toda mi vida conociendo<br>
+            Brindo por esa esperanza<br><br>
+            Ven por mí, acompáñame a casa<br>
+            Y se siente como si Dios me hubiera dado un regalo<br>
+            Dulce y pegajosa, como una mandarina<br>
+            ¿Te quedarías aquí haciéndome compañía?<br>
+            En la oscuridad no tengo miedo<br>
+            Solo extiendo la mano y ahí estás tú<br>
+            Estrellas fugaces, autos veloces<br>
+            Todo lo que tengo se siente como si fuera nuestro<br><br>
+            Es demasiado difícil describir esto<br>
+            De una manera que se sienta sincera<br>
+            Pero incluso cuando me quedo callada<br>
+            Te amo, cariño, lo prometo<br>
+            Y espero nunca ver cómo se ve tu rostro al marcharte<br>
+            Un rostro que juro que podría pasar toda mi vida conociendo<br>
+            Brindo por esa esperanza<br><br>
+            Espero nunca ver cómo se ve tu rostro al marcharte<br>
+            Un rostro que juro que podría pasar toda mi vida conociendo<br>
+            Brindo por esa esperanza<br><br>
+            Es demasiado difícil describir esto<br>
+            De una manera que se sienta sincera<br>
+            Pero incluso cuando me quedo callada<br>
+            Lo prometo<br>
+            Y espero nunca ver cómo se ve tu rostro al marcharte<br>
+            Un rostro que juro que podría pasar toda mi vida conociendo<br>
+            Brindo por esa esperanza.
+          </p>
+        </div>
+      </div>
+
+      <div class="cancion" data-categoria="mon">
+        <div class="portada"><img src="assets/img/portada2.png" alt=""></div>
+        <div class="info">
+          <h3>My one and only love</h3>
+          <span>Mon Laferte</span>
+        </div>
+        <audio controls>
+          <source src="assets/audio/Mon Laferte My One And Only Love.mp3" type="audio/mp4" />
+          Tu navegador no soporta audio HTML5.
+        </audio>
+      </div>
+
+      <div class="cancion" data-categoria="recomendadas">
+        <div class="portada"><img src="assets/img/reik.jpg" alt=""></div>
+        <div class="info">
+          <h3>Yo Quisiera</h3>
+          <span>Reik</span>
+        </div>
+        <audio controls>
+          <source src="assets/audio/Yo Quisiera Reik.mp3" type="audio/mpeg" />
+          Tu navegador no soporta audio HTML5.
+        </audio>
+      </div>
+
+      <div class="cancion" data-categoria="recomendadas">
+        <div class="portada"><img src="assets/img/yonaguni.jpg" alt=""></div>
+        <div class="info">
+          <h3>Yonaguni</h3>
+          <span>Bad Bunny</span>
+        </div>
+        <audio controls>
+          <source src="assets/audio/Yonaguni Bad Bunny.mp3" type="audio/mpeg" />
+          Tu navegador no soporta audio HTML5.
+        </audio>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© Hecho con mucho amor para Abraham 💗</footer>
+
+<script src="js/main.js"></script>
+<script src="js/musica.js"></script>
+</body>
+</html>

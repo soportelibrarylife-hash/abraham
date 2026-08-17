@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Juego para Abraham 🎮</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<canvas id="fondo-estrellas"></canvas>
+<div id="contenedor-corazones"></div>
+
+<header class="navbar">
+  <span class="logo">Te amo <span>3 millones</span></span>
+  <button class="boton-menu" aria-label="Abrir menú">☰</button>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="mensajes.html">Mensajes</a></li>
+      <li><a href="musica.html">Música</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+      <li><a href="juego.html">Juego</a></li>
+      <li><a href="escribeme.html">Escríbeme</a></li>
+      <li><a href="carta.html">Carta</a></li>
+    </ul>
+  </nav>
+  <button id="boton-musica-fondo" class="boton-musica">🔈 Música: desactivada</button>
+</header>
+
+<audio id="audio-fondo" loop>
+  <source src="assets/audio/Química Mayor.mp4" type="audio/mp4" />
+</audio>
+
+<main>
+  <section class="seccion panel-juego">
+    <h1 class="titulo-seccion">Un juego para ti</h1>
+    <p class="subtitulo-seccion">
+      Encuentra todas las parejas de cartas.
+    </p>
+
+    <div class="estado-juego">
+      <div>Intentos: <strong id="num-intentos">0</strong></div>
+      <div>Parejas: <strong id="num-pares">0 / 8</strong></div>
+    </div>
+
+    <div class="tablero-juego" id="tablero-juego"></div>
+
+    <p class="mensaje-victoria" id="mensaje-victoria"></p>
+    <button class="boton-primario" id="boton-reiniciar">Reiniciar juego</button>
+  </section>
+</main>
+
+<footer>© Hecho con mucho amor para Abraham 💗</footer>
+
+<script src="js/main.js"></script>
+<script src="js/juego.js"></script>
+</body>
+</html>

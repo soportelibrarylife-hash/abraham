@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Escríbeme 💌</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+
+<body>
+  <canvas id="fondo-estrellas"></canvas>
+  <div id="contenedor-corazones"></div>
+
+  <header class="navbar">
+    <span class="logo">Te amo <span>3 millones</span></span>
+    <button class="boton-menu" aria-label="Abrir menú">☰</button>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="mensajes.html">Mensajes</a></li>
+        <li><a href="musica.html">Música</a></li>
+        <li><a href="galeria.html">Galería</a></li>
+        <li><a href="juego.html">Juego</a></li>
+        <li><a href="escribeme.html">Escríbeme</a></li>
+        <li><a href="carta.html">Carta</a></li>
+      </ul>
+    </nav>
+    <button id="boton-musica-fondo" class="boton-musica">🔈 Música: desactivada</button>
+  </header>
+
+  <audio id="audio-fondo" loop>
+    <source src="assets/audio/Química Mayor.mp4" type="audio/mp4" />
+  </audio>
+
+  <main>
+    <section class="seccion">
+      <h1 class="titulo-seccion">Escríbeme algo bonito</h1>
+      <p class="subtitulo-seccion">
+        Este campo es para que me escribas lo que quieras: un recuerdo, una frase, un mensaje bonito o simplemente lo que te gustaría contarme por correo.
+      </p>
+
+      <form id="form-mensaje" class="formulario-email">
+        <div class="campo-formulario">
+          <label for="mensaje">Escribe lo que quieras</label>
+          <textarea id="mensaje" name="message" rows="6" placeholder="Escribe aquí lo que quieras decirme..." required></textarea>
+        </div>
+
+        <button type="submit" class="boton-enviar">Enviar</button>
+        <p id="estado-formulario" class="estado-formulario" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>© Hecho con mucho amor para Abraham 💗</footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>

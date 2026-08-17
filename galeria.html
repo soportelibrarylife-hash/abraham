@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Galería para Abraham 📸</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<canvas id="fondo-estrellas"></canvas>
+<div id="contenedor-corazones"></div>
+
+<header class="navbar">
+  <span class="logo">Te amo <span>3 millones</span></span>
+  <button class="boton-menu" aria-label="Abrir menú">☰</button>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="mensajes.html">Mensajes</a></li>
+      <li><a href="musica.html">Música</a></li>
+      <li><a href="galeria.html">Galería</a></li>
+      <li><a href="juego.html">Juego</a></li>
+      <li><a href="escribeme.html">Escríbeme</a></li>
+      <li><a href="carta.html">Carta final</a></li>
+    </ul>
+  </nav>
+  <button id="boton-musica-fondo" class="boton-musica">🔈 Música: desactivada</button>
+</header>
+
+<audio id="audio-fondo" loop>
+  <source src="assets/audio/Química Mayor.mp4" type="audio/mp4" />
+</audio>
+
+<main>
+  <section class="seccion">
+    <h1 class="titulo-seccion">✨ Galería de momentos ✨</h1>
+    <p class="subtitulo-seccion">
+      Una colección de instantes especiales: tus fotos y de Mon Laferte. Haz clic en cualquiera para verla en grande.
+    </p>
+
+    <div class="filtros-galeria">
+      <button class="activo" data-categoria="todas">Todas</button>
+      <button data-categoria="abraham">Abraham</button>
+      <button data-categoria="cantante">Mon Laferte</button>
+    </div>
+
+    <div class="rejilla-galeria">
+      <div class="item-galeria" data-categoria="abraham">
+        <img src="assets/img/tu.jpeg" alt="Abraham"
+          onerror="this.src='https://placehold.co/400x400/8a5cff/ffffff?text=Abraham+1'" />
+        <div class="etiqueta-img">Abraham</div>
+      </div>
+      <div class="item-galeria" data-categoria="cantante">
+        <img src="assets/img/1.jpg" alt="Mon Laferte - Luces"
+          onerror="this.src='https://placehold.co/400x400/f7c873/14071f?text=Mon+Laferte+1'" />
+        <div class="etiqueta-img">✨ Luces ✨</div>
+      </div>
+      <div class="item-galeria" data-categoria="cantante">
+        <img src="assets/img/2.jpg" alt="Mon Laferte - La Diva"
+          onerror="this.src='https://placehold.co/400x400/f7c873/14071f?text=Mon+Laferte+2'" />
+        <div class="etiqueta-img">👑 La Diva 👑</div>
+      </div>
+      <div class="item-galeria" data-categoria="cantante">
+        <img src="assets/img/3.jpg" alt="Mon Laferte - Concierto"
+          onerror="this.src='https://placehold.co/400x400/f7c873/14071f?text=Mon+Laferte+3'" />
+        <div class="etiqueta-img">💎 Glamour 💎</div>
+      </div>
+      <div class="item-galeria" data-categoria="cantante">
+        <img src="assets/img/4.avif" alt="Mon Laferte - Magia"
+          onerror="this.src='https://placehold.co/400x400/f7c873/14071f?text=Mon+Laferte+4'" />
+        <div class="etiqueta-img">✨ Magia ✨</div>
+      </div>
+      <div class="item-galeria" data-categoria="cantante">
+        <img src="assets/img/5.jpg" alt="Mon Laferte - Glamour"
+          onerror="this.src='https://placehold.co/400x400/f7c873/14071f?text=Mon+Laferte+5'" />
+        <div class="etiqueta-img">💎 Glamour 💎</div>
+      </div>
+      <div class="item-galeria" data-categoria="cantante">
+        <img src="assets/img/6.webp" alt="Mon Laferte - Artistrya"
+          onerror="this.src='https://placehold.co/400x400/f7c873/14071f?text=Mon+Laferte+6'" />
+        <div class="etiqueta-img">❤️ Perfección ❤️</div>
+      </div>
+      <div class="item-galeria" data-categoria="cantante">
+        <img src="assets/img/7.jpg" alt="Mon Laferte - Energía"
+          onerror="this.src='https://placehold.co/400x400/f7c873/14071f?text=Mon+Laferte+7'" />
+        <div class="etiqueta-img">❤️ Perfección ❤️</div>
+      </div>
+      <div class="item-galeria" data-categoria="cantante">
+        <img src="assets/img/8.jpg" alt="Mon Laferte - Perfección"
+          onerror="this.src='https://placehold.co/400x400/f7c873/14071f?text=Mon+Laferte+8'" />
+        <div class="etiqueta-img">❤️ Perfección ❤️</div>
+      </div>
+      <div class="item-galeria" data-categoria="abraham" data-tipo="video">
+        <video src="assets/img/video1.mp4" poster="assets/img/por.jpg"></video>
+        <div class="icono-play">▶</div>
+        <div class="etiqueta-img">Tu - Video</div>
+      </div>
+      <div class="item-galeria" data-categoria="cantante" data-tipo="video">
+        <video src="assets/img/mon.mp4" poster="assets/img/por2.webp"></video>
+        <div class="icono-play">▶</div>
+        <div class="etiqueta-img">Mon Laferte - Video</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="caja-lightbox">
+  <button class="cerrar-lightbox" aria-label="Cerrar">✕</button>
+  <img id="img-lightbox" src="" alt="" />
+  <video id="video-lightbox" controls></video>
+</div>
+
+<footer>© Hecho con mucho amor para Abraham 💗</footer>
+
+<script src="js/main.js"></script>
+<script src="js/galeria.js"></script>
+</body>
+</html>
