@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const botonesFiltro = document.querySelectorAll('.filtros-musica button');
   const audioFondo = document.getElementById('audio-fondo');
   const botonMusicaFondo = document.getElementById('boton-musica-fondo');
+  const fuenteGuardada = localStorage.getItem('musicaFondoFuente');
 
   const honeybeeAudio = document.querySelector('.cancion[data-cancion="honeybee"] audio');
   const honeybeeBoton = document.querySelector('.boton-ver-letra[data-cancion="honeybee"]');
@@ -122,11 +123,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const audio = cancion.querySelector('audio');
     if (!audio) return;
 
+    const fuente = audio.querySelector('source')?.getAttribute('src');
+    if (fuente === fuenteGuardada) {
+      const tiempoGuardado = Number(localStorage.getItem('musicaFondoTiempo') || 0);
+      audio.addEventListener('loadedmetadata', () => {
+        if (tiempoGuardado > 0 && tiempoGuardado < audio.duration) {
+          audio.currentTime = tiempoGuardado;
+        }
+      }, { once: true });
+
+      function reanudarCancion() {
+        audio.play()
+          .then(() => {
+            if (botonMusicaFondo) botonMusicaFondo.textContent = '🔊 Música: activada';
+          })
+          .catch(() => {
+            if (botonMusicaFondo) botonMusicaFondo.textContent = '▶️ Toca para continuar';
+          });
+      }
+
+      reanudarCancion();
+      document.addEventListener('pointerdown', reanudarCancion, { once: true });
+      if (botonMusicaFondo) botonMusicaFondo.textContent = '▶️ Toca para continuar';
+    }
+
+    function guardarCancion() {
+      if (!fuente) return;
+      localStorage.setItem('musicaFondoFuente', fuente);
+      if (Number.isFinite(audio.currentTime)) {
+        localStorage.setItem('musicaFondoTiempo', String(audio.currentTime));
+      }
+      localStorage.setItem('musicaFondoActiva', 'true');
+    }
+
+    audio.addEventListener('timeupdate', guardarCancion);
+    audio.addEventListener('pause', guardarCancion);
+
     audio.addEventListener('play', () => {
+      guardarCancion();
       if (audioFondo) {
         audioFondo.pause();
-        localStorage.setItem('musicaFondoActiva', 'false');
-        if (botonMusicaFondo) botonMusicaFondo.textContent = '🔈 Música: desactivada';
+        if (botonMusicaFondo) botonMusicaFondo.textContent = '🔊 Música: activada';
       }
 
       canciones.forEach((otraCancion) => {

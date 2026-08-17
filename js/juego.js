@@ -67,7 +67,7 @@ function comprobarPar() {
     actualizarEstado();
     if (paresEncontrados === SIMBOLOS.length) {
       document.getElementById('mensaje-victoria').textContent =
-        '¡Ganaste! Como cada momento contigo 💞';
+        '¡Ganaste!💞';
     }
   } else {
     bloqueado = true;

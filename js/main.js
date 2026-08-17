@@ -103,11 +103,19 @@ function iniciarContador() {
 // ===== Música de fondo persistente entre páginas =====
 function iniciarMusicaFondo() {
   const boton = document.getElementById('boton-musica-fondo');
-  const audio = document.getElementById('audio-fondo');
-  if (!boton || !audio) return;
+  const audioFondo = document.getElementById('audio-fondo');
+  if (!boton || !audioFondo) return;
 
   const activa = localStorage.getItem('musicaFondoActiva') === 'true';
+  const fuenteGuardada = localStorage.getItem('musicaFondoFuente');
   const tiempoGuardado = Number(localStorage.getItem('musicaFondoTiempo') || 0);
+  const audioVisible = Array.from(document.querySelectorAll('.lista-canciones audio'))
+    .find((elemento) => elemento.querySelector('source')?.getAttribute('src') === fuenteGuardada);
+  let audio = audioVisible || audioFondo;
+
+  if (fuenteGuardada && !audioVisible) {
+    audioFondo.src = fuenteGuardada;
+  }
 
   function guardarTiempo() {
     if (Number.isFinite(audio.currentTime)) {
@@ -125,12 +133,15 @@ function iniciarMusicaFondo() {
   window.addEventListener('beforeunload', guardarTiempo);
   audio.addEventListener('play', () => {
     document.querySelectorAll('.cancion audio').forEach((otraCancion) => {
-      otraCancion.pause();
+      if (otraCancion !== audio) otraCancion.pause();
     });
+  });
+  document.querySelectorAll('.cancion audio').forEach((audioLista) => {
+    audioLista.addEventListener('play', () => { audio = audioLista; });
   });
 
   actualizarBoton(activa);
-  if (activa) {
+  if (activa && !audioVisible) {
     audio.play().catch(() => { });
   }
 
